@@ -1,0 +1,19 @@
+# [Topic/Pattern]: Longest Continuous Increasing Subsequence (LeetCode 674)
+
+## Code
+
+```cpp
+class Solution {
+public:
+    int findLengthOfLCIS(vector<int>& nums) {
+        if (nums.empty()) return 0;
+        int max_len = 1, current_len = 1;
+        for (int i = 1; i < nums.size(); i++) {
+            if (nums[i] > nums[i - 1]) current_len++;
+            else current_len = 1;
+            max_len = max(max_len, current_len);
+        }
+        return max_len;
+    }
+};
+```
